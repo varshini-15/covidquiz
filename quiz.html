@@ -1,0 +1,157 @@
+<html>
+    <head>
+        
+        <title>Quiz</title>
+        <link rel = "stylesheet" href = "stylequiz.css"/>
+        <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script type = "text/javascript">
+    
+  function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+           alert("OOPS! Timed Out" + "\n" +"Click to View your score and answers")
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60 * 5,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+
+            var userInput = [];
+            var answers = []
+            answers[0] = "A";
+            answers[1] = "D";
+            answers[2] = "C";
+            answers[3] = "A";
+            answers[4] = "D";
+    
+           function getScore() 
+            {
+               
+                var score = 0;
+                var numQuestions = 5;
+                var form = document.getElementById('form1');
+
+                userInput[0] = form1.q1.value;
+                userInput[1] = form1.q2.value;
+                userInput[2] = form1.q3.value;
+                userInput[3] = form1.q4.value;
+                userInput[4] = form1.q5.value;
+
+                for (var i = 0; i < numQuestions; i++) 
+                {
+
+                    if (userInput[i] === answers[i]) 
+                    {
+                        score += 1;
+                    }
+                    else
+                    {
+                        score += 0;
+                    }
+
+                }
+                return score;
+            }
+            function returnScore()
+            {
+                alert("Your score is "+ getScore() +" / "+ 5);
+            }
+          
+       </script>    
+
+    </head>
+    <div class = "outer">
+    <body>
+       
+            <h1>Let's have a Covid Quiz time!!</h1>
+            <div><center><h2>The Quiz closes in <span id="time">05:00</span> minutes!</h2></center></div>
+            <div class = "inner">
+                <br><br>
+                <form id = "form1" action="action.html" target = "_blank">
+                <div class = "qn1">
+                    <H3>1. Thailand announced that it has proceeded to test it's novel coronavirus vaccine on which animal/bird?</H3>
+                    <h4>
+                        <input type = "radio" name = "q1" value = "A" > 
+                        <label> A. Monkeys</label>
+                        <input type = "radio" name = "q1" value = " B" > 
+                        <label> B. Lizards</label>
+                        <input type = "radio" name = "q1" value = " C"> 
+                        <label> C. Hens</label>
+                        <input type = "radio" name = "q1" value = " D" >
+                        <label> D. Kites</label>
+                    </h4>
+                </div><br>
+                <div class = "qn2">
+                    <H3>2. How many countries, areas, or territories are suffering from novel coronavirus outbreaks in the World?</H3>
+                    <h4>
+                        <input type = "radio" name = "q2" value = "A" > 
+                        <label>A. More than 50</label>
+                        <input type = "radio" name = "q2" value = "B" > 
+                        <label>B. More than 100</label>
+                        <input type = "radio" name = "q2" value = "C"> 
+                        <label>C. More than 150</label>
+                        <input type = "radio" name = "q2" value = "D" >
+                        <label>D. More than 200</label>
+                    </h4>
+                </div><br>
+                <div class = "qn3">
+                    <H3>3. In a study, which cells are found in COVID-19 patients 'bode well' for long-term immunity?</H3>
+                    <h4>
+                        <input type = "radio" name = "q3" value = "A" > 
+                        <label>A. P-cell</label>
+                        <input type = "radio" name = "q3" value = "B" > 
+                        <label>B. D-Cell</label>
+                        <input type = "radio" name = "q3" value = "C"> 
+                        <label>C. T-Cell</label>
+                        <input type = "radio" name = "q3" value = "D" >
+                        <label>D. Endothelial Cells</label>
+                    </h4>
+                </div><br>
+                <div class = "qn4">
+                    <H3>4. The first case of novel coronavirus was identified in Wuhan, Hebei. Is it true?</H3>
+                    <h4>
+                        <input type = "radio" name = "q4" value = "A" > 
+                        <label>A. Yes</label>
+                        <input type = "radio" name = "q4" value = "B" > 
+                        <label>B. No</label>
+                       
+                    </h4>
+                </div><br>
+                <div class = "qn5">
+                    <H3>5. In India, when did the second phase of COVID-19 vaccination start?</H3>
+                    <h4>
+                        <input type = "radio" name = "q5" value = "A" > 
+                        <label>A. December 2020</label>
+                        <input type = "radio" name = "q5" value = "B" > 
+                        <label>B. January 2021</label>
+                        <input type = "radio" name = "q5" value = "C"> 
+                        <label>C. February 2021</label>
+                        <input type = "radio" name = "q5" value = "D" >
+                        <label>D. March 2021</label>
+                    </h4>
+                </div>
+            </div>
+       
+            <div class = "sub_sec">
+                <input type = "submit" class = "submit" ></input>
+                <button type="button" class = "score" onclick = "javascript: returnScore()">View Score</button>
+                <button type="button"class = "answers" onclick="location.href='quiz_ans.html';" target = "_blank">Answers</button>
+            </div>
+        </form>
+        </body>
+    </div>
+   
